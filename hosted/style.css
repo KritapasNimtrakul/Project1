@@ -1,0 +1,39 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+    color:white;
+    font-family: 'Bellefair', serif;
+}
+
+#top {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#top{
+  font-size: 2em;
+    font-family: 'Bellefair', serif;
+}
+
+#content {
+  margin-top: 100px;
+  font-size: 2em;
+  text-align: center;
+    font-family: 'Bellefair', serif;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+    font-family: 'Bellefair', serif;
+}
+#titleField {
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Bellefair', serif;
+}
+input[type=submit] {
+    
+}

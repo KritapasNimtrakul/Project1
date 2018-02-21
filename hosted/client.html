@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+  <!-- script to get our new JS bundle from the server -->
+  <script src="bundle.js"> </script>
+</head>
+<body>
+  <section id="top">
+    <h1>Post It</h1>
+    <p style="visibility: hidden; font-family: 'Bellefair', serif;">aa</p>
+    <form id="nameForm" action="/addPost" method="post">
+      <input id="titleField" type="text" name="title" size="55" placeholder="POST TITLE"/><br>
+        <textarea id="infoField" rows="25" cols="100" maxlength="500" name="info" placeholder="Note . . ."></textarea><br>
+        <input type="submit" value="Submit Post" />
+    </form>
+      
+    <form id="userForm" action="/getPost" method="get">
+        <input type="submit" value="View Post" />
+    </form>
+  </section>
+  <section id="content">
+  </section>
+</body>
+</html>
