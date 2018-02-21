@@ -6,8 +6,8 @@ const jsonHandler = require('./jsonResponses.js');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-//added route to get for our ES5 JS bundle. 
-//This bundle will be created by our babel 
+// added route to get for our ES5 JS bundle.
+// This bundle will be created by our babel
 // watch/build scripts in package.json
 const urlStruct = {
   '/': htmlHandler.getIndex,
@@ -39,7 +39,7 @@ const handlePost = (request, response, parsedUrl) => {
       const bodyString = Buffer.concat(body).toString();
 
       const bodyParams = query.parse(bodyString);
-        console.log(bodyParams);
+      console.log(bodyParams);
 
       jsonHandler.addPost(request, res, bodyParams);
     });
@@ -58,8 +58,8 @@ const handleGet = (request, response, parsedUrl) => {
 
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
-  const params = query.parse(parsedUrl.query);
-    console.log(parsedUrl.pathname);
+  // const params = query.parse(parsedUrl.query);
+  console.log(parsedUrl.pathname);
 
   if (request.method === 'POST') {
     handlePost(request, response, parsedUrl);
