@@ -15,14 +15,26 @@ const respondJSONMeta = (request, response, status) => {
   response.end();
 };
 
-const success = (request, response, method) => {
-  const responseJSON = {
-    users,
-  };
-  if (method === 'GET') {
-    return respondJSON(request, response, 200, responseJSON);
-  } else if (method === 'HEAD') {
-    return respondJSON(request, response, 200);
+const success = (request, response, method, params) => {
+  if (!users[params.search]) {
+    const responseJSON = {
+      message: 'Query missing',
+      id: 'missing Params',
+    };
+
+    return respondJSON(request, response, 400, responseJSON);
+  }
+  if (users[params.search].title) {
+    const userQuery = users[params.search];
+    const responseJSON = {
+      title: userQuery.title,
+      info: userQuery.info,
+    };
+    if (method === 'GET') {
+      return respondJSON(request, response, 200, responseJSON);
+    } else if (method === 'HEAD') {
+      return respondJSON(request, response, 200);
+    }
   }
   return respondJSON(request, response, 404);
 };
@@ -42,7 +54,7 @@ const notFound = (request, response, method) => {
 
 const badRequest = (request, response) => {
   const responseJSON = {
-    message: 'Name and age are both required',
+    message: 'Post and title are both require',
     id: 'missing Params',
   };
 
@@ -67,6 +79,8 @@ const addPost = (request, response, body) => {
   if (responseCode === 201) {
     const responseJSON = {
       message: 'Created Successfully',
+      title: users[body.title].title,
+      info: users[body.title].info,
     };
     return respondJSON(request, response, responseCode, responseJSON);
   }

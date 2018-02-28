@@ -46,9 +46,12 @@ const handlePost = (request, response, parsedUrl) => {
   }
 };
 
-const handleGet = (request, response, parsedUrl) => {
+const handleGet = (request, response, parsedUrl, params) => {
+  // console.log(params);
   // route to correct method based on url
-  if (urlStruct[parsedUrl.pathname]) {
+  if (parsedUrl.pathname === '/getPost') {
+    urlStruct[parsedUrl.pathname](request, response, request.method, params);
+  } else if (urlStruct[parsedUrl.pathname]) {
     urlStruct[parsedUrl.pathname](request, response, request.method);
   } else {
     urlStruct.notFound(request, response, request.method);
@@ -58,13 +61,14 @@ const handleGet = (request, response, parsedUrl) => {
 
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
-  // const params = query.parse(parsedUrl.query);
-  console.log(parsedUrl.pathname);
+  const params = query.parse(parsedUrl.query);
+  // console.log(parsedUrl.pathname);
+  // console.log(params);
 
   if (request.method === 'POST') {
     handlePost(request, response, parsedUrl);
   } else {
-    handleGet(request, response, parsedUrl);
+    handleGet(request, response, parsedUrl, params);
   }
 };
 

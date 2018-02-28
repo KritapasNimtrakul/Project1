@@ -18,14 +18,14 @@ html, body {
     font-family: 'Bellefair', serif;
 }
 
-#content {
+#content, #searchContent {
   margin-top: 100px;
   font-size: 2em;
   text-align: center;
     font-family: 'Bellefair', serif;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: red;
+    color: whitesmoke;
     opacity: 1; /* Firefox */
     font-family: 'Bellefair', serif;
 }
@@ -33,7 +33,89 @@ html, body {
     font-size: 1em;
     text-align: center;
     font-family: 'Bellefair', serif;
+    background-color: #000;
+    color:white;
+    border: none;
+    border-bottom: 2px solid #888;
 }
 input[type=submit] {
-    
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Bellefair', serif;
+}
+#infoField{
+    background-color: #000;
+        color:white;
+    border: none;
+}
+.button {
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Bellefair', serif;
+}
+textarea {
+    resize: none;
+    font-size: 0.5em;
+    overflow: auto;
+}
+#overlay {
+    position: fixed;
+    display: none;
+    width: 60%;
+    height: 75%;
+    top: 0;
+    left: 25%;
+    right: 0;
+    bottom: 0;
+    background-color: #111;
+    z-index: 2;
+    transition: .5s ease;
+}
+input[type=submit]:hover, .button:hover{
+    background-color: #0098FF;
+}
+button{
+    background-color: #000;
+    color: #FFF;
+    border:none;
+    font-size: 1em;
+    display:block;
+}
+button:hover{
+    background-color: #0098FF;
+    color: #FFF;
+}
+.closeBtn {
+    float: right;
+    margin-left: -3em;
+}
+#title{
+    display: inline-block;
+    width: 30%;
+    margin-bottom: 10%;
+    padding:20px;
+    color: black;
+    overflow: auto;
+}
+#searchField{
+        background-color: #000;
+        color:white;
+    border: none;
+    font-size: 0.5em;
 }
